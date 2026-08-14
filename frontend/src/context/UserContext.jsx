@@ -23,8 +23,17 @@ export const UserProvider = ({ children }) => {
     localStorage.removeItem("token");
   };
 
+  // 🔹 নতুন ফাংশন — profile update এর জন্য
+  const updateUser = (updatedData) => {
+    setUser((prev) => {
+      const newUser = { ...prev, ...updatedData };
+      localStorage.setItem("user", JSON.stringify(newUser));
+      return newUser;
+    });
+  };
+
   return (
-    <UserContext.Provider value={{ user, loginUser, logoutUser }}>
+    <UserContext.Provider value={{ user, loginUser, logoutUser, updateUser }}>
       {children}
     </UserContext.Provider>
   );

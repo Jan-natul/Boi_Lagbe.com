@@ -75,21 +75,20 @@ const UpdateProfile = () => {
       const result = await response.json();
 
       if (result.success) {
-     
-        const updatedUserObj = {
-          ...user,
-          username: result.username,
-          email: result.email,
-          profilePic: result.profilePic 
-        };
-        
-        loginUser(updatedUserObj);
-        handleSuccess("Profile updated successfully!");
-        
-        setTimeout(() => {
-          navigate("/profile");
-        }, 1000);
-      } else {
+  const updatedUserObj = {
+    ...user,
+    username: result.username || formData.username,
+    email: result.email || formData.email,
+    profilePic: formData.profilePic   // 👈 result থেকে না, formData থেকে নিন
+  };
+
+  loginUser(updatedUserObj);
+  handleSuccess("Profile updated successfully!");
+
+  setTimeout(() => {
+    navigate("/profile");
+  }, 1000);
+}else {
         handleError(result.message);
       }
 

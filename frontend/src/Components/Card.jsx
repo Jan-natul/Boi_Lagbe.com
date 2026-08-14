@@ -1,11 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Card = ({ book }) => {
-  // book প্রপ থেকে ডাটাগুলো বের করে (Destructure) নেওয়া হচ্ছে
+  const navigate = useNavigate();
+
   const { title, author, type, price, location, image } = book;
 
+  const handleClick = () => {
+    navigate(`/post/${book._id}`);
+  };
+
   return (
-    <div className="bg-[#FEFCE8] rounded-2xl border-4 border-orange-400 shadow-md p-3 w-60 mx-auto transition hover:shadow-xl flex flex-col h-full">
+    <div
+      onClick={handleClick}
+      className="bg-[#FEFCE8] rounded-2xl border-4 border-orange-400 shadow-md p-3 w-60 mx-auto transition hover:shadow-xl flex flex-col h-full cursor-pointer"
+    >
       
       <div className="h-40 w-full overflow-hidden rounded-lg bg-white mb-2">
         <img
@@ -23,7 +32,6 @@ const Card = ({ book }) => {
         {author}
       </p>
 
-      {/* Price Section */}
       <div className="mt-auto">
         <p className="text-center text-green-700 font-bold bg-green-50 py-1 rounded-md mx-4">
           {type} {price ? `| ${price} Tk.` : ""}

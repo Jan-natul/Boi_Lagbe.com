@@ -12,6 +12,7 @@ function LoginPage() {
     password:''
   })
    const { loginUser } = useContext(UserContext); 
+   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
     const handleChange = (e) => {
@@ -98,22 +99,70 @@ function LoginPage() {
             </div>
 
             <div className="flex flex-col">
-              <label
-                htmlFor="password"
-                className="text-green-600 font-semibold mb-1"
-              >
-                Password
-              </label>
-              <input
-               onChange={handleChange}
-                id="password"
-                name="password"
-                type="password"
-                placeholder="Enter your password"
-                value={loginInfo.password}
-                className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#36A76F]"
-              />
-            </div>
+  <label
+    htmlFor="password"
+    className="text-green-600 font-semibold mb-1"
+  >
+    Password
+  </label>
+
+  <div className="relative">
+    <input
+      onChange={handleChange}
+      id="password"
+      name="password"
+      type={showPassword ? "text" : "password"}
+      placeholder="Enter your password"
+      value={loginInfo.password}
+      className="w-full border-2 border-gray-300 rounded-md p-2 pr-10 focus:outline-none focus:ring-2 focus:ring-[#36A76F]"
+    />
+
+    <button
+  type="button"
+  onClick={() => setShowPassword(!showPassword)}
+  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-green-600"
+>
+      {showPassword ? (
+  // Eye Off
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.8}
+    stroke="currentColor"
+    className="w-5 h-5"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 15.338 7.244 18 12 18c1.694 0 3.305-.338 4.776-.949M6.228 6.228A10.451 10.451 0 0112 4c4.756 0 8.774 2.662 10.066 6a10.523 10.523 0 01-4.132 5.134M6.228 6.228L3 3m3.228 3.228l12.544 12.544M17.772 17.772L21 21"
+    />
+  </svg>
+) : (
+  // Eye
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.8}
+    stroke="currentColor"
+    className="w-5 h-5"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+    />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+    />
+  </svg>
+)}
+    </button>
+  </div>
+</div>
 
             <button
               type="submit"

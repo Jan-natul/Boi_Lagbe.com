@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "../Components/Searchbar";
 import About from "../Components/About";
-import SellRules from "../Components/Sellrules";
+import SellRules from "../Components/SellRules";
 import Footer from "../Components/Footer";
 import BookSection from "../Components/Booklist"; 
 import Filter from "../Components/Filter";

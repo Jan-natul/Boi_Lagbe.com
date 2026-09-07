@@ -5,7 +5,7 @@ import SignupPage from "./route/signuppage";
 import LoginPage from "./route/loginpage";
 import ProfilePage from "./route/Profile";
 import ListPage from "./route/Listpage";
-import Navbar from "./components/Navbar";
+import Navbar from "./Components/Navbar";
 import AddBook from "./route/Addbook";
 import PostPage from "./route/Postpage";
 import AboutH from "./route/AboutH";

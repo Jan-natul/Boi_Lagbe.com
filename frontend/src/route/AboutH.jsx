@@ -1,6 +1,6 @@
 import React from 'react'
-import About from '../components/About'
-import Footer from "../components/Footer";
+import About from '../Components/About'
+import Footer from "../Components/Footer";
 
 const AboutH = () => {
   return (

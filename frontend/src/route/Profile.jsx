@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom"; 
-import Card from "../components/Card";
-import Footer from "../components/Footer";
-import Chat from "../components/Chat"; 
+import Card from "../Components/Card";
+import Footer from "../Components/Footer";
+import Chat from "../Components/Chat"; 
 import { UserContext } from "../context/UserContext";
 import io from "socket.io-client";
 import moment from "moment";

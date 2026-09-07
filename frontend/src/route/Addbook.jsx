@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom"; // useLocation যোগ করা হলো
-import Footer from "../components/Footer";
-import UploadWidget from "../components/UploadWidget"; 
+import Footer from "../Components/Footer";
+import UploadWidget from "../Components/UploadWidget"; 
 import { UserContext } from "../context/UserContext";
 import { handleError, handleSuccess } from "../utils";
 import { ToastContainer } from "react-toastify";

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import Footer from '../components/Footer'
+import Footer from '../Components/Footer'
 import { handleError, handleSuccess } from '../utils'
 
 const SignupPage = () => {

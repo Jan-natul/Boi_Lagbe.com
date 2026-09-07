@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
-import Footer from "../components/Footer";
-import UploadWidget from "../components/UploadWidget"; 
+import Footer from "../Components/Footer";
+import UploadWidget from "../Components/UploadWidget"; 
 import { handleError, handleSuccess } from "../utils";
 import { ToastContainer } from "react-toastify";
 

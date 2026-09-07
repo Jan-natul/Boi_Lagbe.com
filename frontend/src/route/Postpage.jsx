@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, useRef } from "react"; 
 import { useParams, useNavigate } from "react-router-dom"; 
-import Footer from "../components/Footer";
-import Chat from "../components/Chat";
+import Footer from "../Components/Footer";
+import Chat from "../Components/Chat";
 import { UserContext } from "../context/UserContext"; 
 
 const PostPage = () => {

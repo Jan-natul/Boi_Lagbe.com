@@ -3,7 +3,7 @@ import io from "socket.io-client";
 import { UserContext } from "../context/UserContext";
 import Swal from "sweetalert2";
 
-const socket = io.connect("http://localhost:8080");
+const socket = io.connect("http://https://boi-lagbe-com.onrender.com");
 
 const Chat = ({ onClose, receiverName, receiverId }) => {
   const { user } = useContext(UserContext);
@@ -80,7 +80,7 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
       // Get chat status
       // -----------------------------
       const statusRes = await fetch(
-        `http://localhost:8080/api/chat-request/status/${currentUserId}/${otherUserId}`,
+        `http://https://boi-lagbe-com.onrender.com/api/chat-request/status/${currentUserId}/${otherUserId}`,
         {
           headers: {
             Authorization: token,
@@ -136,7 +136,7 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
         getId(statusData.blockedBy) === currentUserId
       ) {
         const msgRes = await fetch(
-          `http://localhost:8080/api/chat-request/messages/${currentUserId}/${otherUserId}`,
+          `http://https://boi-lagbe-com.onrender.com/api/chat-request/messages/${currentUserId}/${otherUserId}`,
           {
             headers: {
               Authorization: token,
@@ -271,7 +271,7 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
         const token = localStorage.getItem("token");
 
         const initRes = await fetch(
-          "http://localhost:8080/api/chat-request/initiate",
+          "http://https://boi-lagbe-com.onrender.com/api/chat-request/initiate",
           {
             method: "POST",
             headers: {
@@ -331,7 +331,7 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
       const token = localStorage.getItem("token");
 
       const res = await fetch(
-        "http://localhost:8080/api/chat-request/action",
+        "http://https://boi-lagbe-com.onrender.com/api/chat-request/action",
         {
           method: "PUT",
           headers: {

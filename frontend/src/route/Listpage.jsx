@@ -23,7 +23,7 @@ const ListPage = () => {
       setLoading(true);
       try {
         const query = new URLSearchParams(filters).toString();
-        const response = await fetch(`http://localhost:8080/api/posts?${query}`); 
+        const response = await fetch(`http://https://boi-lagbe-com.onrender.com/api/posts?${query}`); 
         const result = await response.json();
         
         if (result.success) {

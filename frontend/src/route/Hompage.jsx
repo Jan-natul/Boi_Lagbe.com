@@ -86,7 +86,7 @@ const Home = () => {
         </div>
       </div>
 
-      <About />
+      <About animate={true} />
 
       <div className="w-full bg-gray-100 py-12 pb-2 px-6">
         <div className="max-w-6xl mx-auto">

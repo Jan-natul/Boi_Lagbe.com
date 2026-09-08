@@ -57,7 +57,7 @@ const Home = () => {
             Give your old books a new home!
           </h1>
           <p className="homepage-heading text-lg sm:text-xl md:text-2xl mb-6 font-medium text-green-600">
-            A platform where you can easily buy, sell, and exchange books with
+            A platform where you can easily buy, sell and exchange books with
             other readers.
           </p>
           <div className="flex justify-center md:justify-start">
@@ -103,14 +103,14 @@ const Home = () => {
       <SellRules />
 
       <BookSection
-        title="Available Resale Books"
+        title="Resale Books"
         books={resellBooks}
         type="resell"
         link="/list?type=resell" 
       />
 
       <BookSection
-        title="Available Exchange Books"
+        title="Exchange Books"
         books={exchangeBooks}
         type="exchange"
         link="/list?type=exchange"

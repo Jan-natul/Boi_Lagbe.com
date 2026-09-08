@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 const signupValidation = (req,res,next)=>{
-    console.log("BODY:", req.body);
+    
     const schema = Joi.object({
         username: Joi.string().min(2).max(50).required(),
         email: Joi.string().email().required(),

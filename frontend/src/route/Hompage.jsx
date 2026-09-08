@@ -15,7 +15,7 @@ const Home = () => {
     const fetchBooks = async () => {
       try {
 
-        const response = await fetch("http://https://boi-lagbe-com.onrender.com/api/posts");
+        const response = await fetch("https://boi-lagbe-com.onrender.com/api/posts");
         const result = await response.json();
 
         if (result.success) {

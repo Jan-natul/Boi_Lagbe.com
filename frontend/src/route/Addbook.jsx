@@ -41,7 +41,7 @@ const AddBook = () => {
             transactionType: existingPost.transactionType,
             image: existingPost.image
         });
-        setImagePreview(existingPost.image.startsWith("http") ? existingPost.image : `http://https://boi-lagbe-com.onrender.com/images/${existingPost.image}`);
+        setImagePreview(existingPost.image.startsWith("http") ? existingPost.image : `https://boi-lagbe-com.onrender.com/images/${existingPost.image}`);
     }
   }, [isEditMode, existingPost]);
 
@@ -64,11 +64,11 @@ const AddBook = () => {
 
     try {
       const token = localStorage.getItem("token");
-      let url = "http://https://boi-lagbe-com.onrender.com/api/posts/create";
+      let url = "https://boi-lagbe-com.onrender.com/api/posts/create";
       let method = "POST";
 
       if (isEditMode) {
-          url = `http://https://boi-lagbe-com.onrender.com/api/posts/update/${existingPost._id}`;
+          url = `https://boi-lagbe-com.onrender.com/api/posts/update/${existingPost._id}`;
           method = "PUT";
       }
 

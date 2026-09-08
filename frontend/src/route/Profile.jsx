@@ -8,7 +8,7 @@ import io from "socket.io-client";
 import moment from "moment";
 import Swal from 'sweetalert2'; 
 
-const socket = io.connect("http://https://boi-lagbe-com.onrender.com");
+const socket = io.connect("https://boi-lagbe-com.onrender.com");
 
 const ProfilePage = () => {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const ProfilePage = () => {
 const fetchSavedPosts = async () => {
     try {
         const token = localStorage.getItem('token');
-        const response = await fetch(`http://https://boi-lagbe-com.onrender.com/user/saved-posts`, {
+        const response = await fetch(`https://boi-lagbe-com.onrender.com/user/saved-posts`, {
             headers: { 'Authorization': token }
         });
         const result = await response.json();
@@ -76,7 +76,7 @@ useEffect(() => {
 
   const fetchMyPosts = async () => {
     try {
-      const response = await fetch(`http://https://boi-lagbe-com.onrender.com/api/posts/user/${user._id}`);
+      const response = await fetch(`https://boi-lagbe-com.onrender.com/api/posts/user/${user._id}`);
       const result = await response.json();
       if (result.success) {
         setMyPosts(result.posts);
@@ -89,7 +89,7 @@ useEffect(() => {
   const fetchConversations = async () => {
     try {
         const token = localStorage.getItem('token');
-        const response = await fetch(`http://https://boi-lagbe-com.onrender.com/api/chat-request/conversations/list`, {
+        const response = await fetch(`https://boi-lagbe-com.onrender.com/api/chat-request/conversations/list`, {
            headers: { 'Authorization': token }
         });
         const result = await response.json();
@@ -117,7 +117,7 @@ useEffect(() => {
           if (result.isConfirmed) {
               try {
                   const token = localStorage.getItem('token');
-                  const response = await fetch(`http://https://boi-lagbe-com.onrender.com/api/posts/delete/${postId}`, {
+                  const response = await fetch(`https://boi-lagbe-com.onrender.com/api/posts/delete/${postId}`, {
                       method: 'DELETE',
                       headers: { 'Authorization': token }
                   });
@@ -151,7 +151,7 @@ useEffect(() => {
       if (result.isConfirmed) {
         try {
           const token = localStorage.getItem('token');
-          const response = await fetch("http://https://boi-lagbe-com.onrender.com/user/delete-account", {
+          const response = await fetch("https://boi-lagbe-com.onrender.com/user/delete-account", {
             method: "DELETE",
             headers: {
               "Authorization": token
@@ -188,7 +188,7 @@ useEffect(() => {
                 <img
                   src={
                     user.profilePic
-                      ? (user.profilePic.startsWith("http") ? user.profilePic : `http://https://boi-lagbe-com.onrender.com/images/${user.profilePic}`)
+                      ? (user.profilePic.startsWith("http") ? user.profilePic : `https://boi-lagbe-com.onrender.com/images/${user.profilePic}`)
                       : "/noavatar.png"
                   }
                   alt="Profile"
@@ -306,7 +306,7 @@ useEffect(() => {
                                     <img 
                                         src={
                                             convo.userDetails.profilePic 
-                                            ? (convo.userDetails.profilePic.startsWith("http") ? convo.userDetails.profilePic : `http://https://boi-lagbe-com.onrender.com/images/${convo.userDetails.profilePic}`)
+                                            ? (convo.userDetails.profilePic.startsWith("http") ? convo.userDetails.profilePic : `https://boi-lagbe-com.onrender.com/images/${convo.userDetails.profilePic}`)
                                             : "/noavatar.png"
                                         }
                                         alt={convo.userDetails.username}

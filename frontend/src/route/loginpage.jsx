@@ -17,7 +17,6 @@ function LoginPage() {
   const navigate = useNavigate();
     const handleChange = (e) => {
         const { name, value } = e.target;
-        console.log(name, value);
         const copyLoginInfo = { ...loginInfo };
         copyLoginInfo[name] = value;
         setLoginInfo(copyLoginInfo);
@@ -30,7 +29,7 @@ function LoginPage() {
             return handleError('email and password are required')
         }
         try {
-            const url = `http://https://boi-lagbe-com.onrender.com/auth/login`;
+            const url = `https://boi-lagbe-com.onrender.com/auth/login`;
             const response = await fetch(url, {
                 method: "POST",
                 headers: {

@@ -64,7 +64,7 @@ const UpdateProfile = () => {
 
     try {
       
-      const response = await fetch(`http://https://boi-lagbe-com.onrender.com/user/update/${user._id}`, {
+      const response = await fetch(`https://boi-lagbe-com.onrender.com/user/update/${user._id}`, {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json' 

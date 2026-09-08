@@ -3,7 +3,7 @@ import io from "socket.io-client";
 import { UserContext } from "../context/UserContext";
 import Swal from "sweetalert2";
 
-const socket = io.connect("http://https://boi-lagbe-com.onrender.com");
+const socket = io.connect("https://boi-lagbe-com.onrender.com");
 
 const Chat = ({ onClose, receiverName, receiverId }) => {
   const { user } = useContext(UserContext);
@@ -80,7 +80,7 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
       // Get chat status
       // -----------------------------
       const statusRes = await fetch(
-        `http://https://boi-lagbe-com.onrender.com/api/chat-request/status/${currentUserId}/${otherUserId}`,
+        `https://boi-lagbe-com.onrender.com/api/chat-request/status/${currentUserId}/${otherUserId}`,
         {
           headers: {
             Authorization: token,
@@ -136,7 +136,7 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
         getId(statusData.blockedBy) === currentUserId
       ) {
         const msgRes = await fetch(
-          `http://https://boi-lagbe-com.onrender.com/api/chat-request/messages/${currentUserId}/${otherUserId}`,
+          `https://boi-lagbe-com.onrender.com/api/chat-request/messages/${currentUserId}/${otherUserId}`,
           {
             headers: {
               Authorization: token,
@@ -271,7 +271,7 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
         const token = localStorage.getItem("token");
 
         const initRes = await fetch(
-          "http://https://boi-lagbe-com.onrender.com/api/chat-request/initiate",
+          "https://boi-lagbe-com.onrender.com/api/chat-request/initiate",
           {
             method: "POST",
             headers: {
@@ -331,7 +331,7 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
       const token = localStorage.getItem("token");
 
       const res = await fetch(
-        "http://https://boi-lagbe-com.onrender.com/api/chat-request/action",
+        "https://boi-lagbe-com.onrender.com/api/chat-request/action",
         {
           method: "PUT",
           headers: {

@@ -14,7 +14,6 @@ const SignupPage = () => {
   const navigate = useNavigate();
     const handleChange = (e) => {
         const { name, value } = e.target;
-        console.log(name, value);
         const copySignupInfo = { ...signupInfo };
         copySignupInfo[name] = value;
         setSignupInfo(copySignupInfo);
@@ -27,7 +26,7 @@ const SignupPage = () => {
             return handleError('name, email and password are required')
         }
         try {
-            const url = `http://https://boi-lagbe-com.onrender.com/auth/signup`;
+            const url = `https://boi-lagbe-com.onrender.com/auth/signup`;
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
@@ -48,7 +47,6 @@ const SignupPage = () => {
             } else if (!success) {
                 handleError(message);
             }
-            console.log(result);
         } catch (err) {
             handleError(err);
         }

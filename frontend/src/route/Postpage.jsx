@@ -20,7 +20,7 @@ const PostPage = () => {
   useEffect(() => {
     const fetchPostAndStatus = async () => {
       try {
-        const response = await fetch(`http://https://boi-lagbe-com.onrender.com/api/posts/${id}`);
+        const response = await fetch(`https://boi-lagbe-com.onrender.com/api/posts/${id}`);
         const result = await response.json();
         
         if (result.success) {
@@ -29,7 +29,7 @@ const PostPage = () => {
         
         if (user) {
             const token = localStorage.getItem('token');
-            const savedRes = await fetch(`http://https://boi-lagbe-com.onrender.com/user/is-saved/${id}`, {
+            const savedRes = await fetch(`https://boi-lagbe-com.onrender.com/user/is-saved/${id}`, {
                 headers: { 'Authorization': token }
             });
             const savedData = await savedRes.json();
@@ -63,7 +63,7 @@ const PostPage = () => {
       }
       try {
           const token = localStorage.getItem('token');
-          const response = await fetch(`http://https://boi-lagbe-com.onrender.com/user/save/${id}`, {
+          const response = await fetch(`https://boi-lagbe-com.onrender.com/user/save/${id}`, {
               method: 'PUT',
               headers: { 
                   'Content-Type': 'application/json',
@@ -141,7 +141,7 @@ const PostPage = () => {
               src={
                  post.image.includes("http") 
                  ? post.image 
-                 : `http://https://boi-lagbe-com.onrender.com/images/${post.image}`
+                 : `https://boi-lagbe-com.onrender.com/images/${post.image}`
               }
               alt={post.title}
               className="w-full h-auto rounded-lg shadow-md object-cover"

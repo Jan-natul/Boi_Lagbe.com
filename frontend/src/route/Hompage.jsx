@@ -50,6 +50,7 @@ const Home = () => {
 
   return (
     <>
+    <div className="w-full overflow-x-hidden">
       <div className="min-h-[600px] md:h-[700px] bg-gray-100 flex flex-col md:flex-row items-center justify-center md:justify-between px-6 sm:px-8 md:px-10 py-12 md:py-0 gap-10 md:gap-6">
         <div className="max-w-xl font-Grandstander md:pl-20 pb-0 md:pb-30 text-center md:text-left">
           <h1 className="homepage-heading text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 text-green-600">
@@ -116,6 +117,7 @@ const Home = () => {
       />
 
       <Footer />
+      </div>
     </>
   );
 };

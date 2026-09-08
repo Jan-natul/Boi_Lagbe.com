@@ -396,8 +396,8 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
   // =========================================================
   if (chatStatus === "not_found") {
     return (
-      <div className="fixed bottom-10 right-10 z-50 animate-fade-in-up">
-        <div className="w-[350px] bg-white rounded-xl border-2 border-gray-300 shadow-2xl h-[200px] flex flex-col justify-center items-center p-5 text-center">
+      <div className="fixed bottom-0 right-0 left-0 sm:left-auto sm:bottom-10 sm:right-10 z-50 animate-fade-in-up px-3 pb-3 sm:p-0">
+        <div className="w-full sm:w-[350px] mx-auto bg-white rounded-xl border-2 border-gray-300 shadow-2xl h-[200px] flex flex-col justify-center items-center p-5 text-center">
           <div className="text-4xl mb-3">😕</div>
 
           <h3 className="text-lg font-bold text-gray-700">
@@ -438,8 +438,8 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
   // UI
   // =========================================================
   return (
-    <div className="fixed bottom-10 right-10 z-50 animate-fade-in-up">
-      <div className="w-[350px] bg-gray-100 rounded-xl border-2 border-green-600 shadow-2xl overflow-hidden flex flex-col h-[450px] relative">
+    <div className="fixed bottom-0 right-0 left-0 sm:left-auto sm:bottom-10 sm:right-10 z-50 animate-fade-in-up px-3 pb-3 sm:p-0">
+      <div className="w-full sm:w-[350px] mx-auto bg-gray-100 rounded-xl border-2 border-green-600 shadow-2xl overflow-hidden flex flex-col h-[75vh] max-h-[450px] relative">
 
         {/* Header */}
         <div className="bg-gray-200 px-3 py-2 flex justify-between items-center border-b border-gray-300 z-10">

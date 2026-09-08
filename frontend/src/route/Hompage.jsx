@@ -50,38 +50,40 @@ const Home = () => {
 
   return (
     <>
-      <div className="h-[700px] bg-gray-100 flex items-center justify-between px-10">
-        <div className="max-w-xl font-Grandstander pl-20 pb-30">
-          <h1 className="homepage-heading text-4xl md:text-5xl font-extrabold mb-6 text-green-600">
+      <div className="min-h-[600px] md:h-[700px] bg-gray-100 flex flex-col md:flex-row items-center justify-center md:justify-between px-6 sm:px-8 md:px-10 py-12 md:py-0 gap-10 md:gap-6">
+        <div className="max-w-xl font-Grandstander md:pl-20 pb-0 md:pb-30 text-center md:text-left">
+          <h1 className="homepage-heading text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 text-green-600">
             Give your old books a new home!
           </h1>
-          <p className="homepage-heading text-2xl mb-6 font-medium text-green-600">
+          <p className="homepage-heading text-lg sm:text-xl md:text-2xl mb-6 font-medium text-green-600">
             A platform where you can easily buy, sell, and exchange books with
             other readers.
           </p>
-          <SearchBar onSearch={(term) => console.log(term)} />
+          <div className="flex justify-center md:justify-start">
+            <SearchBar onSearch={(term) => console.log(term)} />
+          </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 pr-30 pb-30">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:pr-30 pb-0 md:pb-30 w-full max-w-[340px] sm:max-w-[420px] md:max-w-none md:w-auto">
           <img
             src="bg.jpg"
             alt="pic1"
-            className="w-[250px] h-[180px] object-cover rounded-xl shadow-md"
+            className="w-full h-32 sm:h-40 md:w-[250px] md:h-[180px] object-cover rounded-xl shadow-md"
           />
           <img
             src="2nd.JPG"
             alt="pic2"
-            className="w-[250px] h-[180px] object-cover rounded-xl shadow-md"
+            className="w-full h-32 sm:h-40 md:w-[250px] md:h-[180px] object-cover rounded-xl shadow-md"
           />
           <img
             src="3rd.jpg"
             alt="pic3"
-            className="w-[250px] h-[180px] object-cover rounded-xl shadow-md"
+            className="w-full h-32 sm:h-40 md:w-[250px] md:h-[180px] object-cover rounded-xl shadow-md"
           />
           <img
             src="4th.jpg"
             alt="pic4"
-            className="w-[250px] h-[180px] object-cover rounded-xl shadow-md"
+            className="w-full h-32 sm:h-40 md:w-[250px] md:h-[180px] object-cover rounded-xl shadow-md"
           />
         </div>
       </div>

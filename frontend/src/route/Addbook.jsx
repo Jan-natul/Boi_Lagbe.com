@@ -103,7 +103,7 @@ const AddBook = () => {
         <div className="max-w-7xl mx-auto px-6 mt-10 grid grid-cols-1 md:grid-cols-4 gap-10 items-start">
           
           <div className="col-span-1 flex justify-center md:justify-start">
-            <img src="/boy3.png" alt="reading" className="w-70 h-auto object-contain" onError={(e) => e.target.src = "https://via.placeholder.com/300"}/>
+            <img src="/boy3.png" alt="reading" className="w-40 sm:w-56 md:w-70 h-auto object-contain" onError={(e) => e.target.src = "https://via.placeholder.com/300"}/>
           </div>
 
           <div className="md:col-span-3 pb-20">

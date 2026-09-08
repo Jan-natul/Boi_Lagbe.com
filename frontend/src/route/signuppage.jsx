@@ -56,10 +56,10 @@ const SignupPage = () => {
     <>
      <div className="min-h-screen bg-gray-100 flex flex-col">
 
-      <div className="flex flex-1 justify-center items-center">
-        <img src="boy2.png" alt="" className='w-150 h-auto mr-20 mb-30'/>
-        <div className="bg-gray-100 p-10 w-120 rounded-xl border-3 mb-30 border-[#FD9846] max-w-md">
-          <h2 className="text-4xl font-bold text-[#FD9846] text-center mb-10">
+      <div className="flex flex-1 flex-col md:flex-row justify-center items-center px-4 py-10 md:py-0 gap-8 md:gap-0">
+        <img src="boy2.png" alt="" className='hidden sm:block w-40 sm:w-56 md:w-80 lg:w-[500px] h-auto md:mr-20'/>
+        <div className="bg-gray-100 p-6 sm:p-10 w-full max-w-md rounded-xl border-3 border-[#FD9846]">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#FD9846] text-center mb-8 sm:mb-10">
             Create an Account
           </h2>
 

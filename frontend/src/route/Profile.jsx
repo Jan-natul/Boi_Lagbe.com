@@ -232,7 +232,7 @@ useEffect(() => {
             <div className="bg-white rounded-xl shadow-sm border border-gray-300 p-2 mb-6 flex flex-wrap gap-2">
               <button onClick={() => setActiveTab("myPosts")} className={`flex-1 py-2 px-4 rounded-lg font-semibold transition ${activeTab === "myPosts" ? "bg-orange-400 text-white shadow-md" : "text-gray-600 hover:bg-gray-100"}`}>My Posts 📚</button>
               <button onClick={() => setActiveTab("messages")} className={`flex-1 py-2 px-4 rounded-lg font-semibold transition ${activeTab === "messages" ? "bg-orange-400 text-white shadow-md" : "text-gray-600 hover:bg-gray-100"}`}>Messages 💬</button>
-              <button onClick={() => setActiveTab("saved")} className={`flex-1 py-2 px-4 rounded-lg font-semibold transition ${activeTab === "saved" ? "bg-orange-400 text-white shadow-md" : "text-gray-600 hover:bg-gray-100"}`}>Saved ❤️</button>
+              <button onClick={() => setActiveTab("saved")} className={`flex-1 py-2 px-4 rounded-lg font-semibold transition ${activeTab === "saved" ? "bg-orange-400 text-white shadow-md" : "text-gray-600 hover:bg-gray-100"}`}>Saved   ❤️</button>
               <button onClick={() => setActiveTab("notifications")} className={`flex-1 py-2 px-4 rounded-lg font-semibold transition relative ${activeTab === "notifications" ? "bg-orange-400 text-white shadow-md" : "text-gray-600 hover:bg-gray-100"}`}>
                 Notifications 🔔
                 {notifications.length > 0 && (
@@ -246,7 +246,7 @@ useEffect(() => {
                {activeTab === "myPosts" && (
                 <div>
                   <div className="flex justify-between items-center mb-6">
-                    <h3 className="text-2xl font-bold text-gray-800 font-Grandstander">My Published Books</h3>
+                    <h3 className="text-2xl font-bold text-gray-800 font-Grandstander">My Books</h3>
                     <Link to="/add">
                       <button className="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg font-bold shadow-md transition flex items-center gap-2">
                         <span>+</span> Create Post

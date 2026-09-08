@@ -102,14 +102,14 @@ const Home = () => {
       <SellRules />
 
       <BookSection
-        title="Recently Added for Resale"
+        title="Available Resale Books"
         books={resellBooks}
         type="resell"
         link="/list?type=resell" 
       />
 
       <BookSection
-        title="Books Available for Exchange"
+        title="Available Exchange Books"
         books={exchangeBooks}
         type="exchange"
         link="/list?type=exchange"

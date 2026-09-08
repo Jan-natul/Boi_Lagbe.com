@@ -131,12 +131,13 @@ const PostPage = () => {
 
   return (
     <>
-    <div className="min-h-screen bg-gray-100 pt-10 pb-20 text-[#2B2B2B]">
+    <div className="min-h-screen bg-gray-100 pt-10 pb-20 px-4 sm:px-6 text-[#2B2B2B]">
 
-      <div className="max-w-5xl mx-auto p-6 border-2 border-orange-400 rounded-2xl bg-[#fcf9c2] shadow-lg">
+      <div className="max-w-5xl mx-auto p-4 sm:p-6 border-2 border-orange-400 rounded-2xl bg-[#fcf9c2] shadow-lg">
         <div className="flex flex-col md:flex-row gap-8">
 
-          <div className="w-full md:w-1/3">
+          {/* IMAGE - smaller, with Save/Share overlaid top-right */}
+          <div className="relative w-full md:w-1/4 max-w-[220px] mx-auto md:mx-0 shrink-0">
             <img
               src={
                  post.image.includes("http") 
@@ -147,65 +148,62 @@ const PostPage = () => {
               className="w-full h-auto rounded-lg shadow-md object-cover"
               onError={(e) => {e.target.src = "https://via.placeholder.com/300x400?text=No+Image"}}
             />
+
+            {/* Save/Share overlay */}
+            <div className="absolute top-2 right-2 flex flex-col gap-2">
+                <div className="relative">
+                    <button 
+                      onClick={handleShareClick}
+                      className="p-2 rounded-full bg-blue-500 hover:bg-blue-600 text-white shadow-md transition"
+                      aria-label="Share"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                      </svg>
+                    </button>
+
+                    {showShareMenu && (
+                        <div ref={shareMenuRef} className="absolute top-11 right-0 bg-white border border-gray-200 shadow-xl rounded-lg p-2 w-48 z-50 flex flex-col space-y-2">
+                            <button onClick={() => shareToSocial('facebook')} className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 rounded text-sm text-gray-700 font-bold">
+                                <span className="text-blue-600">f</span> Facebook
+                            </button>
+                            <button onClick={() => shareToSocial('whatsapp')} className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 rounded text-sm text-gray-700 font-bold">
+                                <span className="text-green-500">W</span> WhatsApp
+                            </button>
+                            <button onClick={() => shareToSocial('twitter')} className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 rounded text-sm text-gray-700 font-bold">
+                                <span className="text-blue-400">X</span> Twitter
+                            </button>
+                            <hr />
+                            <button onClick={copyLink} className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 rounded text-sm text-gray-700 font-bold">
+                                🔗 Copy Link
+                            </button>
+                        </div>
+                    )}
+                </div>
+
+                <button 
+                  onClick={handleSaveToggle}
+                  className={`p-2 rounded-full text-white shadow-md transition
+                      ${isSaved ? "bg-green-600 hover:bg-green-700" : "bg-orange-400 hover:bg-orange-500"}
+                  `}
+                  aria-label={isSaved ? "Saved" : "Save"}
+                >
+                  {isSaved ? (
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                  ) : (
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                      </svg>
+                  )}
+                </button>
+            </div>
           </div>
 
+          {/* DETAILS */}
           <div className="flex-1 space-y-3">
-            <div className="flex justify-between pt-2 items-center">
-              <h1 className="text-3xl font-bold text-[#B45309] uppercase">{post.title}</h1>
-              
-              <div className="flex gap-2 relative">
-                  <button 
-                    onClick={handleShareClick}
-                    className="px-4 py-2 rounded-xl font-bold text-white bg-blue-500 hover:bg-blue-600 shadow transition flex items-center gap-2"
-                  >
-                    <span>Share</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                    </svg>
-                  </button>
-
-                  {showShareMenu && (
-                      <div ref={shareMenuRef} className="absolute top-12 left-0 bg-white border border-gray-200 shadow-xl rounded-lg p-2 w-48 z-50 flex flex-col space-y-2">
-                          <button onClick={() => shareToSocial('facebook')} className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 rounded text-sm text-gray-700 font-bold">
-                              <span className="text-blue-600">f</span> Facebook
-                          </button>
-                          <button onClick={() => shareToSocial('whatsapp')} className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 rounded text-sm text-gray-700 font-bold">
-                              <span className="text-green-500">W</span> WhatsApp
-                          </button>
-                          <button onClick={() => shareToSocial('twitter')} className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 rounded text-sm text-gray-700 font-bold">
-                              <span className="text-blue-400">X</span> Twitter
-                          </button>
-                          <hr />
-                          <button onClick={copyLink} className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 rounded text-sm text-gray-700 font-bold">
-                              🔗 Copy Link
-                          </button>
-                      </div>
-                  )}
-
-                  <button 
-                    onClick={handleSaveToggle}
-                    className={`px-4 py-2 rounded-xl font-bold text-white shadow transition flex items-center gap-2
-                        ${isSaved ? "bg-green-600 hover:bg-green-700" : "bg-orange-400 hover:bg-orange-500"}
-                    `}
-                  >
-                    {isSaved ? (
-                        <>
-                        <span>Saved</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                        </>
-                    ) : (
-                        <>
-                        <span>Save</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-                        </svg>
-                        </>
-                    )}
-                  </button>
-              </div>
-            </div>
+            <h1 className="text-2xl sm:text-3xl font-bold text-[#B45309] uppercase break-words pt-2">{post.title}</h1>
 
             <p className="text-lg pb-5 text-gray-700">By <span className="font-semibold">{post.author}</span></p>
             <p className="font-semibold text-l text-gray-900">Published by: <span className="font-normal text-green-700">{post.user ? post.user.username : "Unknown User"}</span></p>

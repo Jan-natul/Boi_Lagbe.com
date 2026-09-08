@@ -58,7 +58,7 @@ const Home = () => {
           </h1>
           <p className="homepage-heading text-lg sm:text-xl md:text-2xl mb-6 font-medium text-green-600">
             A platform where you can easily buy, sell and exchange books with
-            other readers.
+            other readers
           </p>
           <div className="flex justify-center md:justify-start">
             <SearchBar onSearch={(term) => console.log(term)} />

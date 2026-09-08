@@ -136,8 +136,8 @@ const PostPage = () => {
       <div className="max-w-5xl mx-auto p-4 sm:p-6 border-2 border-orange-400 rounded-2xl bg-[#fcf9c2] shadow-lg">
         <div className="flex flex-col md:flex-row gap-8">
 
-          {/* IMAGE - smaller, with Save/Share overlaid top-right */}
-          <div className="relative w-full md:w-1/4 max-w-[220px] mx-auto md:mx-0 shrink-0">
+          {/* IMAGE - bigger now, no overlay */}
+          <div className="w-full md:w-2/5 shrink-0">
             <img
               src={
                  post.image.includes("http") 
@@ -148,13 +148,17 @@ const PostPage = () => {
               className="w-full h-auto rounded-lg shadow-md object-cover"
               onError={(e) => {e.target.src = "https://via.placeholder.com/300x400?text=No+Image"}}
             />
+          </div>
 
-            {/* Save/Share overlay */}
-            <div className="absolute top-2 right-2 flex flex-col gap-2">
+          {/* DETAILS */}
+          <div className="flex-1 space-y-3">
+
+            {/* Save/Share row - top right, beside image, not on top of it */}
+            <div className="flex justify-end gap-2 relative">
                 <div className="relative">
                     <button 
                       onClick={handleShareClick}
-                      className="p-2 rounded-full bg-blue-500 hover:bg-blue-600 text-white shadow-md transition"
+                      className="p-2.5 rounded-full bg-blue-500 hover:bg-blue-600 text-white shadow-md transition"
                       aria-label="Share"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -183,7 +187,7 @@ const PostPage = () => {
 
                 <button 
                   onClick={handleSaveToggle}
-                  className={`p-2 rounded-full text-white shadow-md transition
+                  className={`p-2.5 rounded-full text-white shadow-md transition
                       ${isSaved ? "bg-green-600 hover:bg-green-700" : "bg-orange-400 hover:bg-orange-500"}
                   `}
                   aria-label={isSaved ? "Saved" : "Save"}
@@ -199,11 +203,8 @@ const PostPage = () => {
                   )}
                 </button>
             </div>
-          </div>
 
-          {/* DETAILS */}
-          <div className="flex-1 space-y-3">
-            <h1 className="text-2xl sm:text-3xl font-bold text-[#B45309] uppercase break-words pt-2">{post.title}</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold text-[#B45309] uppercase break-words">{post.title}</h1>
 
             <p className="text-lg pb-5 text-gray-700">By <span className="font-semibold">{post.author}</span></p>
             <p className="font-semibold text-l text-gray-900">Published by: <span className="font-normal text-green-700">{post.user ? post.user.username : "Unknown User"}</span></p>

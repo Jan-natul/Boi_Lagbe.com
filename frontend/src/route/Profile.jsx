@@ -232,7 +232,7 @@ useEffect(() => {
             <div className="bg-white rounded-xl shadow-sm border border-gray-300 p-2 mb-6 flex flex-wrap gap-2">
               <button onClick={() => setActiveTab("myPosts")} className={`flex-1 py-2 px-4 rounded-lg font-semibold transition ${activeTab === "myPosts" ? "bg-orange-400 text-white shadow-md" : "text-gray-600 hover:bg-gray-100"}`}>My Posts 📚</button>
               <button onClick={() => setActiveTab("messages")} className={`flex-1 py-2 px-4 rounded-lg font-semibold transition ${activeTab === "messages" ? "bg-orange-400 text-white shadow-md" : "text-gray-600 hover:bg-gray-100"}`}>Messages 💬</button>
-              <button onClick={() => setActiveTab("saved")} className={`flex-1 py-2 px-4 rounded-lg font-semibold transition ${activeTab === "saved" ? "bg-orange-400 text-white shadow-md" : "text-gray-600 hover:bg-gray-100"}`}>Saved   ❤️</button>
+              <button onClick={() => setActiveTab("saved")} className={`flex-1 py-2 px-4 rounded-lg font-semibold transition ${activeTab === "saved" ? "bg-orange-400 text-white shadow-md" : "text-gray-600 hover:bg-gray-100"}`}>Saved Posts ❤️</button>
               <button onClick={() => setActiveTab("notifications")} className={`flex-1 py-2 px-4 rounded-lg font-semibold transition relative ${activeTab === "notifications" ? "bg-orange-400 text-white shadow-md" : "text-gray-600 hover:bg-gray-100"}`}>
                 Notifications 🔔
                 {notifications.length > 0 && (

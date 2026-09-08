@@ -27,7 +27,7 @@ const BookSection = ({ title, books = [], type = "", link }) => {
             to={link || "#"} 
             className="text-orange-400 font-bold text-lg hover:text-orange-500 hover:underline transition"
           >
-            See More;
+            See More
           </Link>
         </div>
 

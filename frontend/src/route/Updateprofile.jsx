@@ -2,9 +2,9 @@ import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import Footer from "../Components/Footer";
-import UploadWidget from "../Components/UploadWidget"; 
 import { handleError, handleSuccess } from "../utils";
 import { ToastContainer } from "react-toastify";
+import UploadWidget from "../components/UploadWidget";
 
 const UpdateProfile = () => {
   const navigate = useNavigate();
@@ -79,7 +79,7 @@ const UpdateProfile = () => {
     ...user,
     username: result.username || formData.username,
     email: result.email || formData.email,
-    profilePic: formData.profilePic   // 👈 result থেকে না, formData থেকে নিন
+    profilePic: formData.profilePic  
   };
 
   loginUser(updatedUserObj);

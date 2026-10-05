@@ -3,10 +3,10 @@ import React, { useEffect, useRef, useState } from "react";
 const About = ({ animate = false }) => {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(!animate); 
-  // animate false hole shuru theke i visible true thakbe (static)
+  
 
   useEffect(() => {
-    if (!animate) return; // animation na thakle observer lagbe na
+    if (!animate) return; 
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -28,7 +28,7 @@ const About = ({ animate = false }) => {
       ref={sectionRef}
       className="w-full py-16 px-6 md:px-20 flex flex-col md:flex-row items-center gap-12"
     >
-      {/* Image */}
+    
 <div
   className={`relative w-full md:w-1/2 ${
     animate
@@ -38,7 +38,6 @@ const About = ({ animate = false }) => {
       : ""
   }`}
 >
-  {/* Decorative Orange Box behind image */}
   <div className="absolute top-4 left-4 w-full h-full border-4 border-orange-400 rounded-2xl z-0 hidden md:block"></div>
 
   <img
@@ -48,7 +47,6 @@ const About = ({ animate = false }) => {
   />
 </div>
 
-      {/* Text */}
       <div
         className={`w-full md:w-1/2 ${
           animate

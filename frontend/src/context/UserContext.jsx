@@ -23,7 +23,6 @@ export const UserProvider = ({ children }) => {
     localStorage.removeItem("token");
   };
 
-  // 🔹 নতুন ফাংশন — profile update এর জন্য
   const updateUser = (updatedData) => {
     setUser((prev) => {
       const newUser = { ...prev, ...updatedData };

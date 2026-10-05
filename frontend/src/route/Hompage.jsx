@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import SearchBar from "../Components/Searchbar";
-import About from "../Components/About";
-import SellRules from "../Components/SellRules";
 import Footer from "../Components/Footer";
-import BookSection from "../Components/Booklist"; 
-import Filter from "../Components/Filter";
+import SellRules from "../components/Sellrules";
+import Filter from "../components/Filter";
+import Searchbar from "../components/Searchbar";
+import About from "../components/About";
+import BookSection from "../components/Booklist";
+
 
 const Home = () => {
   const [resellBooks, setResellBooks] = useState([]);
@@ -61,7 +62,7 @@ const Home = () => {
             other readers
           </p>
           <div className="flex justify-center md:justify-start">
-            <SearchBar onSearch={(term) => console.log(term)} />
+            <Searchbar onSearch={(term) => console.log(term)} />
           </div>
         </div>
 

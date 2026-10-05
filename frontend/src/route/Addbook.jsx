@@ -1,10 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom"; // useLocation যোগ করা হলো
+import { useNavigate, useLocation } from "react-router-dom"; 
 import Footer from "../Components/Footer";
-import UploadWidget from "../Components/UploadWidget"; 
 import { UserContext } from "../context/UserContext";
 import { handleError, handleSuccess } from "../utils";
 import { ToastContainer } from "react-toastify";
+import UploadWidget from "../components/UploadWidget";
 
 const AddBook = () => {
   const navigate = useNavigate();

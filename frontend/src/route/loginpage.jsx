@@ -122,7 +122,7 @@ function LoginPage() {
   className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-green-600"
 >
       {showPassword ? (
-  // Eye Off
+ 
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -138,7 +138,7 @@ function LoginPage() {
     />
   </svg>
 ) : (
-  // Eye
+
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"

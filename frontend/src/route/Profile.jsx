@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom"; 
-import Card from "../Components/Card";
 import Footer from "../Components/Footer";
 import Chat from "../Components/Chat"; 
 import { UserContext } from "../context/UserContext";
 import io from "socket.io-client";
 import moment from "moment";
 import Swal from 'sweetalert2'; 
+import Card from "../components/Card";
 
 const socket = io.connect("https://boi-lagbe-com.onrender.com");
 
@@ -348,7 +348,7 @@ useEffect(() => {
         {savedPostsData.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {savedPostsData.map((book) => (
-            <Card 
+            <Card
                 key={book._id} 
                 book={{...book, type: book.transactionType, price: book.price}} 
             />

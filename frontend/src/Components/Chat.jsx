@@ -15,9 +15,7 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
 
   const scrollRef = useRef(null);
 
-  // =========================================================
-  // ID helper
-  // =========================================================
+
   const getId = (value) => {
     if (!value) return "";
 
@@ -30,9 +28,7 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
     return String(value);
   };
 
-  // =========================================================
-  // Normalize message
-  // =========================================================
+
   const normalizeMessage = (msg) => {
     const senderId = getId(msg.senderId || msg.sender);
     const receiverId = getId(msg.receiverId || msg.receiver);
@@ -44,9 +40,6 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
     };
   };
 
-  // =========================================================
-  // Join socket room + fetch chat
-  // =========================================================
   useEffect(() => {
     if (!user?._id || !receiverId) return;
 
@@ -64,9 +57,6 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
     checkStatusAndFetchMessages();
   }, [user?._id, receiverId]);
 
-  // =========================================================
-  // Fetch conversation + messages
-  // =========================================================
   const checkStatusAndFetchMessages = async () => {
     if (!user?._id || !receiverId) return;
 
@@ -76,9 +66,6 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
       const currentUserId = getId(user._id);
       const otherUserId = getId(receiverId);
 
-      // -----------------------------
-      // Get chat status
-      // -----------------------------
       const statusRes = await fetch(
         `https://boi-lagbe-com.onrender.com/api/chat-request/status/${currentUserId}/${otherUserId}`,
         {
@@ -97,9 +84,6 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
         return;
       }
 
-      // -----------------------------
-      // New conversation
-      // -----------------------------
       if (statusData.status === "new") {
         setChatStatus("new");
         setConversation(null);
@@ -107,14 +91,8 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
         return;
       }
 
-      // -----------------------------
-      // Set conversation
-      // -----------------------------
       setConversation(statusData.conversation);
 
-      // -----------------------------
-      // Blocked
-      // -----------------------------
       if (statusData.status === "blocked") {
         const blockedBy = getId(statusData.blockedBy);
 
@@ -128,9 +106,6 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
         setChatStatus("active");
       }
 
-      // -----------------------------
-      // Fetch messages
-      // -----------------------------
       if (
         statusData.status !== "blocked" ||
         getId(statusData.blockedBy) === currentUserId
@@ -177,9 +152,6 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
     }
   };
 
-  // =========================================================
-  // Receive real-time messages
-  // =========================================================
   useEffect(() => {
     if (!user?._id || !receiverId) return;
 
@@ -189,14 +161,8 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
 
       const message = normalizeMessage(data);
 
-      console.log("=================================");
       console.log("SOCKET MESSAGE RECEIVED");
-      console.log("TEXT:", message.text);
-      console.log("SENDER:", message.senderId);
-      console.log("RECEIVER:", message.receiverId);
-      console.log("CURRENT USER:", currentUserId);
-      console.log("=================================");
-
+      
       const isMyChat =
         (message.senderId === currentUserId &&
           message.receiverId === otherUserId) ||
@@ -207,7 +173,6 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
         return;
       }
 
-      // Prevent duplicate message
       setMessageList((previousMessages) => {
         const alreadyExists = previousMessages.some(
           (msg) =>
@@ -223,7 +188,6 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
         return [...previousMessages, message];
       });
 
-      // If conversation was new, refresh status
       if (!conversation || conversation.status === "new") {
         checkStatusAndFetchMessages();
       }
@@ -236,18 +200,13 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
     };
   }, [user?._id, receiverId, conversation]);
 
-  // =========================================================
-  // Auto scroll
-  // =========================================================
   useEffect(() => {
     scrollRef.current?.scrollIntoView({
       behavior: "smooth",
     });
   }, [messageList]);
 
-  // =========================================================
-  // Send message
-  // =========================================================
+
   const sendMessage = async () => {
     if (!currentMessage.trim()) return;
 
@@ -264,9 +223,6 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
 
       let currentConvoId = conversation?._id;
 
-      // ---------------------------------
-      // Create conversation if needed
-      // ---------------------------------
       if (!conversation || chatStatus === "new") {
         const token = localStorage.getItem("token");
 
@@ -301,9 +257,6 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
         setChatStatus("active");
       }
 
-      // ---------------------------------
-      // Message data
-      // ---------------------------------
       const messageData = {
         conversationId: currentConvoId,
         senderId: currentUserId,
@@ -321,9 +274,7 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
     }
   };
 
-  // =========================================================
-  // Accept / Reject / Block
-  // =========================================================
+
   const handleAction = async (action) => {
     if (!conversation?._id) return;
 
@@ -373,9 +324,6 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
     }
   };
 
-  // =========================================================
-  // Block
-  // =========================================================
   const handleBlock = () => {
     Swal.fire({
       title: `Block ${receiverName}?`,
@@ -391,9 +339,6 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
     });
   };
 
-  // =========================================================
-  // Message unavailable
-  // =========================================================
   if (chatStatus === "not_found") {
     return (
       <div className="fixed bottom-0 right-0 left-0 sm:left-auto sm:bottom-10 sm:right-10 z-50 animate-fade-in-up px-3 pb-3 sm:p-0">
@@ -419,9 +364,6 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
     );
   }
 
-  // =========================================================
-  // Request states
-  // =========================================================
   const showRequestButtons =
     conversation?.status === "pending" &&
     getId(conversation?.initiator) !== getId(user?._id);
@@ -434,14 +376,12 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
     showRequestButtons ||
     chatStatus === "blocked_by_me";
 
-  // =========================================================
-  // UI
-  // =========================================================
+
   return (
     <div className="fixed bottom-0 right-0 left-0 sm:left-auto sm:bottom-10 sm:right-10 z-50 animate-fade-in-up px-3 pb-3 sm:p-0">
       <div className="w-full sm:w-[350px] mx-auto bg-gray-100 rounded-xl border-2 border-green-600 shadow-2xl overflow-hidden flex flex-col h-[75vh] max-h-[450px] relative">
 
-        {/* Header */}
+
         <div className="bg-gray-200 px-3 py-2 flex justify-between items-center border-b border-gray-300 z-10">
 
           <button
@@ -473,7 +413,6 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
           </button>
         </div>
 
-        {/* Message Request */}
         {showRequestButtons && (
           <div className="absolute inset-0 bg-black/80 z-20 flex flex-col items-center justify-center text-white p-5 text-center mt-10 backdrop-blur-sm">
 
@@ -506,14 +445,12 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
           </div>
         )}
 
-        {/* Pending */}
         {showPendingMessage && (
           <div className="bg-yellow-100 p-2 text-center text-xs text-yellow-800 border-b border-yellow-200">
             Your message request is pending. They can't see your new messages until they accept.
           </div>
         )}
 
-        {/* Messages */}
         <div className="flex-1 p-4 overflow-y-auto space-y-3 bg-white scrollbar-thin scrollbar-thumb-gray-300">
 
           {messageList.map((msg, index) => {
@@ -555,7 +492,6 @@ const Chat = ({ onClose, receiverName, receiverId }) => {
           <div ref={scrollRef} />
         </div>
 
-        {/* Input */}
         <div className="p-3 bg-gray-200 flex items-center gap-2 border-t border-gray-200">
 
           <input

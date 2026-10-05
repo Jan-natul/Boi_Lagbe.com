@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import Card from "../Components/Card";
-import Filter from "../Components/Filter";
 import Footer from "../Components/Footer";
 import 'aos/dist/aos.css'; 
 import AOS from "aos";
+import Filter from "../components/Filter";
+import Card from "../components/Card";
 
 const ListPage = () => {
   const [books, setBooks] = useState([]);

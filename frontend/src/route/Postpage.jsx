@@ -136,7 +136,6 @@ const PostPage = () => {
       <div className="max-w-5xl mx-auto p-4 sm:p-6 border-2 border-orange-400 rounded-2xl bg-[#fcf9c2] shadow-lg">
         <div className="flex flex-col md:flex-row gap-8">
 
-          {/* IMAGE - bigger now, no overlay */}
           <div className="w-full md:w-2/5 shrink-0">
             <img
               src={
@@ -150,10 +149,8 @@ const PostPage = () => {
             />
           </div>
 
-          {/* DETAILS */}
           <div className="flex-1 space-y-3">
 
-            {/* Save/Share row - top right, beside image, not on top of it */}
             <div className="flex justify-end gap-2 relative">
                 <div className="relative">
                     <button 

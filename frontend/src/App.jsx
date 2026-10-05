@@ -5,21 +5,18 @@ import SignupPage from "./route/signuppage";
 import LoginPage from "./route/loginpage";
 import ProfilePage from "./route/Profile";
 import ListPage from "./route/Listpage";
-import Navbar from "./Components/Navbar";
 import AddBook from "./route/Addbook";
 import PostPage from "./route/Postpage";
 import AboutH from "./route/AboutH";
 import { ToastContainer } from "react-toastify";
-
-// 1. UserProvider ইমপোর্ট করুন (পাথ ঠিক আছে কিনা চেক করবেন)
 import { UserProvider } from "./context/UserContext"; 
 import UpdateProfile from "./route/Updateprofile";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
     <div className="font-Grenze">
       
-      {/* 2. UserProvider দিয়ে BrowserRouter কে ঘিরে দিন */}
       <UserProvider>
         <BrowserRouter>
           <Navbar />

@@ -4,7 +4,7 @@ import Footer from "../Components/Footer";
 import { UserContext } from "../context/UserContext";
 import { handleError, handleSuccess } from "../utils";
 import { ToastContainer } from "react-toastify";
-import UploadWidget from "../components/UploadWidget";
+import UploadWidget from "../Components/UploadWidget";
 
 
 const AddBook = () => {

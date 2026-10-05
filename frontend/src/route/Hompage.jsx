@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../Components/Footer";
-import SellRules from "../Components/Sellrules";
+import SellRules from "../Components/SellRules";
 import Filter from "../Components/Filter";
 import Searchbar from "../Components/Searchbar";
 import About from "../Components/About";

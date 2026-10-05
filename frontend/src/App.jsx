@@ -11,7 +11,7 @@ import AboutH from "./route/AboutH";
 import { ToastContainer } from "react-toastify";
 import { UserProvider } from "./context/UserContext"; 
 import UpdateProfile from "./route/Updateprofile";
-import Navbar from "./components/Navbar";
+import Navbar from "./Components/Navbar";
 
 const App = () => {
   return (

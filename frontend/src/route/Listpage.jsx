@@ -3,8 +3,8 @@ import { useSearchParams } from "react-router-dom";
 import Footer from "../Components/Footer";
 import 'aos/dist/aos.css'; 
 import AOS from "aos";
-import Filter from "../components/Filter";
-import Card from "../components/Card";
+import Filter from "../Components/Filter";
+import Card from "../Components/Card";
 
 const ListPage = () => {
   const [books, setBooks] = useState([]);

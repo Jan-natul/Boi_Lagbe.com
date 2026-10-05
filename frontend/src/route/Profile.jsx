@@ -6,7 +6,7 @@ import { UserContext } from "../context/UserContext";
 import io from "socket.io-client";
 import moment from "moment";
 import Swal from 'sweetalert2'; 
-import Card from "../components/Card";
+import Card from "../Components/Card";
 
 const socket = io.connect("https://boi-lagbe-com.onrender.com");
 

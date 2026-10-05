@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../Components/Footer";
-import SellRules from "../components/Sellrules";
-import Filter from "../components/Filter";
-import Searchbar from "../components/Searchbar";
-import About from "../components/About";
-import BookSection from "../components/Booklist";
+import SellRules from "../Components/Sellrules";
+import Filter from "../Components/Filter";
+import Searchbar from "../Components/Searchbar";
+import About from "../Components/About";
+import BookSection from "../Components/Booklist";
 
 
 const Home = () => {
